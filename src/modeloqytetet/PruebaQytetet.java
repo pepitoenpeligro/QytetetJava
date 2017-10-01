@@ -15,16 +15,23 @@ public class PruebaQytetet {
     static private ArrayList<Sorpresa> mazo;
     
     static public void inicializarSorpresa(){
-        mazo.add(new Sorpresa("Texto1", TipoSorpresa.IRACASILLA, 1));
-        mazo.add(new Sorpresa("Texto2", TipoSorpresa.PAGARCOBRAR, 2));
-        mazo.add(new Sorpresa("Texto3", TipoSorpresa.PORCASAHOTEL, 3));
-        mazo.add(new Sorpresa("Texto4", TipoSorpresa.PORJUGADOR, 4));
-        mazo.add(new Sorpresa("Texto5", TipoSorpresa.SALIRCARCEL, 5));
-        mazo.add(new Sorpresa("Texto6", TipoSorpresa.IRACASILLA, 6));
-        mazo.add(new Sorpresa("Texto7", TipoSorpresa.PAGARCOBRAR, 7));
-        mazo.add(new Sorpresa("Texto8", TipoSorpresa.PORCASAHOTEL, 8));
-        mazo.add(new Sorpresa("Texto9", TipoSorpresa.PORJUGADOR, 9));
-        mazo.add(new Sorpresa("Texto10", TipoSorpresa.SALIRCARCEL, 10));
+        mazo.add(new Sorpresa("Tu casero te ha robado todo el dinero (y más) de tu fianza. Sales de la carcel por muerto de hambre.", TipoSorpresa.SALIRCARCEL, 4)); // Carcel
+        
+        mazo.add(new Sorpresa("Te ponen La Reina del Grindr en La Sal. Ganas 1000€", TipoSorpresa.PAGARCOBRAR, 2));
+        mazo.add(new Sorpresa("Samu te roba hummus. Pierdes 500€", TipoSorpresa.PAGARCOBRAR, 3));
+        
+        mazo.add(new Sorpresa("Pompino te toca el culo. Sales corriendo hasta la casilla 16", TipoSorpresa.IRACASILLA, 1));
+        mazo.add(new Sorpresa("El Six Colours está lleno de capillitas. Te vas indignada hasta la casilla 11", TipoSorpresa.IRACASILLA, 5));
+        mazo.add(new Sorpresa("Paloma Cuesta te tira una falda y punto en boca. Te mueves hasta la casilla 9", TipoSorpresa.IRACASILLA, 6));
+        
+        
+        mazo.add(new Sorpresa("La Chunga y La Hierbas tiran un muro de carga. Pagas 100€ por cada Casa y 150 por cada Hotel", TipoSorpresa.PORCASAHOTEL, 7));
+        mazo.add(new Sorpresa("Te has peleado con la Hierbas y te vas al Hostal Loli. Pagas 200€ por cada Casa/Hotel", TipoSorpresa.PORCASAHOTEL, 8));
+        
+        mazo.add(new Sorpresa("Vas a la sal con los alcoholicos. Los invitas a cervezas y gastas 60€", TipoSorpresa.PORJUGADOR, 9));
+        mazo.add(new Sorpresa("Tus amigos te roban el movil y no puedes pagar con el contactless. Te dan 100€", TipoSorpresa.PORJUGADOR, 10));
+        
+        mazo.add(new Sorpresa("Te has liado con un capillita machirulo opresor.Vas a la cárcel", TipoSorpresa.SALIRCARCEL, 0)); // Carcel
     }
     
     static private ArrayList<Sorpresa> devolverMayorCero(){
@@ -82,6 +89,12 @@ public class PruebaQytetet {
         System.out.println("Sorpresas con tipo PORCASAHOTEL: " + devolverTipo(TipoSorpresa.PORCASAHOTEL).toString());
         System.out.println("Sorpresas con tipo PORJUGADOR: " + devolverTipo(TipoSorpresa.PORJUGADOR).toString());
         System.out.println("Sorpresas con tipo SALIRCARCEL: " + devolverTipo(TipoSorpresa.SALIRCARCEL).toString());
+        
+        
+        
+        Tablero miTableroPrueba = new Tablero();
+        System.out.println(miTableroPrueba.toString());
+        System.out.println("La carcel esta: " + miTableroPrueba.getCarcel().getNumeroCasilla());
     }
     
 }
