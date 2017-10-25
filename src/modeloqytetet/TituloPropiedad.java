@@ -16,6 +16,21 @@ public class TituloPropiedad {
     private float factorRevalorizacion;
     private int hipotecaBase;
     private int precioEdificar;
+    private Jugador propietario;
+    private Casilla casilla;
+    
+    
+    public TituloPropiedad(String n, int alqBase, float fRevalorizacion, int hipoBase, int precioEdif, Jugador propie, Casilla casilla){
+        this.nombre = n;
+        this.hipotecada = false;
+        this.alquilerBase = alqBase;
+        this.factorRevalorizacion = fRevalorizacion;
+        this.hipotecaBase = hipoBase;
+        this.precioEdificar = precioEdif;
+        this.propietario = propie;
+        this.casilla = casilla;
+    }
+    
     
     public TituloPropiedad(String n, int alqBase, float fRevalorizacion, int hipoBase, int precioEdif ){
         this.nombre = n;
@@ -32,10 +47,6 @@ public class TituloPropiedad {
 
     public boolean isHipotecada() {
         return hipotecada;
-    }
-
-    public int getAlquilerBase() {
-        return alquilerBase;
     }
 
     public float getFactorRevalorizacion() {
@@ -59,6 +70,7 @@ public class TituloPropiedad {
         this.hipotecada = !this.hipotecada;
     }
     
+    @Override
     public String toString(){
         return "Titulo de Propiedad {" + "nombre de la calle = " + this.nombre +
                 ",\t¿Está hipotecado? = " + this.hipotecada +
@@ -68,5 +80,33 @@ public class TituloPropiedad {
                 ",\tPrecio Edificacion = " + this.precioEdificar +
                 "}";
     }
+    
+    
+    protected void cobrarAlquiler(int coste){
+        throw new UnsupportedOperationException("[cobrarAlquiler] Sin implementar");
+    }
+    
+    public int getAlquilerBase() {
+        return alquilerBase;
+    }
+    
+    protected boolean propietaroEncarcelado(){
+        throw new UnsupportedOperationException("[propietaroEncarcelado] Sin implementar");
+    }
+    
+    protected void setCasilla(Casilla casilla){
+        this.casilla = casilla;
+    }
+    
+    protected void setPropietario(Jugador propietario){
+        this.propietario = propietario;
+    }
+    
+    protected boolean tengoPropietario(){
+        throw new UnsupportedOperationException("[tengoPropietario] Sin implementar");
+    }
+    
+
+     
     
 }

@@ -99,5 +99,84 @@ public class Casilla {
         
     }
     
+    protected TituloPropiedad asignarPropietario(Jugador jugador){
+        throw new UnsupportedOperationException("[asignarPropietario] Sin implementar");
+    } 
+    
+    protected int calcularValorHipoteca(){
+        throw new UnsupportedOperationException("[calcularValorHipoteca] Sin implementar");
+    }
+    
+    protected int cancelarHipoteca(){
+        throw new UnsupportedOperationException("[cancelarHipoteca] Sin implementar");
+    }
+    
+    protected int cobrarAlquiler(){
+        throw new UnsupportedOperationException("[cobrarAlquiler] Sin implementar");
+    }
+    
+    protected int edificarCasa(){
+        throw new UnsupportedOperationException("[edificarCasa] Sin implementar");
+    }
+    
+    protected int edificarHotel(){
+        throw new UnsupportedOperationException("[edificarHotel] Sin implementar");
+    }
+    
+    protected boolean estaHipotecada(){
+        throw new UnsupportedOperationException("[estaHipotecada] Sin implementar");
+    }
+    
+    protected int getCosteHipoteca(){
+        throw new UnsupportedOperationException("[getCosteHipoteca] Sin implementar");
+    }
+    
+    protected int getPrecioEdificar(){
+        throw new UnsupportedOperationException("[getPrecioEdificar] Sin implementar");
+    }
+    
+    protected int hipotecar(){
+        throw new UnsupportedOperationException("[hipotecar] Sin implementar");
+    }
+    
+    protected int precioTotalComprar(){
+        throw new UnsupportedOperationException("[precioTotalComprar] Sin implementar");
+    }
+    
+    protected boolean propietarioEncarcelado(){
+        throw new UnsupportedOperationException("[propietarioEncarcelado] Sin implementar");
+    }
+    
+    protected boolean sePuedeEdificarCasa(){
+        throw new UnsupportedOperationException("[sePuedeEdificarCasa] Sin implementar");
+    }
+    
+    protected boolean sePuedeEdificarHotel(){
+        throw new UnsupportedOperationException("[sePuedeEdificarHotel] Sin implementar");
+    }
+    
+    protected boolean soyEdificable(){
+        throw new UnsupportedOperationException("[soyEdificable] Sin implementar");
+    }
+    
+    protected boolean tengoPropietario(){
+        throw new UnsupportedOperationException("[tengoPropietario] Sin implementar");
+    }
+    
+    protected int tengoTitulo(){
+        throw new UnsupportedOperationException("[tengoTitulo] Sin implementar");
+    }
+    
+    protected void setTitulo(TituloPropiedad titulo){
+        this.titulo = titulo;
+    }
+    
+    protected void asignarTituloPropiedad(){
+        throw new UnsupportedOperationException("[asignarTituloPropiedad] Sin implementar");
+    }
+    
+    
+    
+    
     
 }
