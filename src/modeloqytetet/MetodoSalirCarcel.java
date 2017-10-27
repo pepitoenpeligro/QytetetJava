@@ -9,11 +9,7 @@ package modeloqytetet;
  *
  * @author pepito
  */
-public enum TipoSorpresa {
-    PAGARCOBRAR, 
-    IRACASILLA,
-    PORCASAHOTEL,
-    PORJUGADOR,
-    SALIRCARCEL
-    
+public enum MetodoSalirCarcel {
+    TIRANDODADO,
+    PAGANDOLIBERTAD
 }

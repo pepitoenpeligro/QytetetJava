@@ -78,7 +78,7 @@ public class PruebaQytetet {
         mazo = new ArrayList<Sorpresa>();
         inicializarSorpresa();
         
-        System.out.println(mazo.toString()); // Si no hubieramos llamado al toString, 
+        /*System.out.println(mazo.toString()); // Si no hubieramos llamado al toString, 
         // se llamaria al toString por defecto del tipo base del array, 
         // por lo que el resultado final es el mismo -> Se imprime correctamente
         System.out.println("Sorpresas con valores mayores a cero: " + devolverMayorCero().toString());
@@ -94,7 +94,13 @@ public class PruebaQytetet {
         
         Tablero miTableroPrueba = new Tablero();
         System.out.println(miTableroPrueba.toString());
-        System.out.println("La carcel esta: " + miTableroPrueba.getCarcel().getNumeroCasilla());
+        System.out.println("La carcel esta: " + miTableroPrueba.getCarcel().getNumeroCasilla());*/
+        
+        
+        
+        //Jugador j = new Jugador("Anda Paqui", true, 2000,null,  null, null );
+        //j.actualizarPosicion();
+        
     }
     
 }

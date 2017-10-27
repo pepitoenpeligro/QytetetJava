@@ -17,6 +17,9 @@ public class TituloPropiedad {
     private int hipotecaBase;
     private int precioEdificar;
     
+    private Casilla casilla;
+    private Jugador propietario;
+    
     public TituloPropiedad(String n, int alqBase, float fRevalorizacion, int hipoBase, int precioEdif ){
         this.nombre = n;
         this.hipotecada = false;
@@ -24,6 +27,17 @@ public class TituloPropiedad {
         this.factorRevalorizacion = fRevalorizacion;
         this.hipotecaBase = hipoBase;
         this.precioEdificar = precioEdif;
+    }
+    
+    public TituloPropiedad(String n, int alqBase, float fRevalorizacion, int hipoBase, int precioEdif, Casilla casilla, Jugador jugador){
+        this.nombre = n;
+        this.hipotecada = false;
+        this.alquilerBase = alqBase;
+        this.factorRevalorizacion = fRevalorizacion;
+        this.hipotecaBase = hipoBase;
+        this.precioEdificar = precioEdif;
+        this.casilla = casilla;
+        this.propietario = jugador;
     }
 
     public String getNombre() {
@@ -34,15 +48,15 @@ public class TituloPropiedad {
         return hipotecada;
     }
 
-    public int getAlquilerBase() {
+    protected int getAlquilerBase() {
         return alquilerBase;
     }
 
-    public float getFactorRevalorizacion() {
+    protected float getFactorRevalorizacion() {
         return factorRevalorizacion;
     }
 
-    public int getHipotecaBase() {
+    protected int getHipotecaBase() {
         return hipotecaBase;
     }
 
@@ -69,4 +83,34 @@ public class TituloPropiedad {
                 "}";
     }
     
+    public String getNombreFuncion(){
+        // Se podria usar reflexion ;)
+        StackTraceElement stackTraceElements[] = (new Throwable()).getStackTrace();
+        return "[" + stackTraceElements[1].toString() + "]";
+    }
+    
+    protected void cobrarAlquiler(int coste){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected boolean getHipotecada(){
+        return this.hipotecada;
+    }
+    
+    protected boolean propietarioEncarcelado(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected void setCasilla(Casilla casilla){
+        this.casilla = casilla;
+    }
+    
+    protected void setPropietario(Jugador propietario){
+        this.propietario = propietario;
+    }
+    
+    protected boolean tengoPropietario(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+  
 }

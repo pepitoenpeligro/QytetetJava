@@ -7,6 +7,7 @@ package modeloqytetet;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author pepito
@@ -29,7 +30,7 @@ public class Tablero {
     }
     
     private void inicializar(){
-        casillas = new ArrayList<Casilla>();
+       
         casillas.add(new Casilla(0,1000, TipoCasilla.SALIDA)); // Casilla de salida
         casillas.add(new Casilla(1,0, TipoCasilla.PARKING)); // Parking
         casillas.add(new Casilla(2,0, TipoCasilla.IMPUESTO)); // Impuesto
@@ -55,5 +56,24 @@ public class Tablero {
         
         carcel = casillas.get(4);
     }
+    
+    public String getNombreFuncion(){
+        // Se podria usar reflexion ;)
+        StackTraceElement stackTraceElements[] = (new Throwable()).getStackTrace();
+        return "[" + stackTraceElements[1].toString() + "]";
+    }
+    
+    protected boolean esCasillaCarcel(int numeroCasilla){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected Casilla obtenerCasillaNumero(int numeroCasilla){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected Casilla obtenerNuevaCasilla(Casilla casilla, int desplazamiento){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
     
 }

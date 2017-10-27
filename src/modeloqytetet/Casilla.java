@@ -11,8 +11,8 @@ package modeloqytetet;
  * @author pepito
  */
 public class Casilla {
-    private int numeroCasilla;
     private int coste;
+    private int numeroCasilla;
     private int numHoteles;
     private int numCasas;
     private TipoCasilla tipo;
@@ -82,7 +82,6 @@ public class Casilla {
         this.numHoteles++;
     }
     
-    
     public String toString(){
         // Tiene titulo, luego es una calle
         String comun = "Numero casilla = " + this.numeroCasilla + "\t" +
@@ -98,6 +97,89 @@ public class Casilla {
         }
         
     }
+    
+    public String getNombreFuncion(){
+        // Se podria usar reflexion ;)
+        StackTraceElement stackTraceElements[] = (new Throwable()).getStackTrace();
+        return "[" + stackTraceElements[1].toString() + "]";
+    }
+    
+    protected TituloPropiedad asignarCasilla(Jugador jugador) {
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int calcularValorHipoteca(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int cancelarHipoteca(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int cobrarAlquiler(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int edificarCasa(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int edificarHotel(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected boolean estaHipotecada(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int getCosteHipoteca(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int getPrecioEdificar(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int hipotecar(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int precioTotalCompra(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected boolean propietarioEncarcelado(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected boolean sePuedeEdificarCasa(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected boolean sePuedeEdificarHotel(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected boolean soyEdificable(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected boolean tengoPropietario(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected int venderTitulo(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected void setTitulo(TituloPropiedad titulo){
+        this.titulo = titulo;
+    }
+    
+    protected void asignarTituloPropiedad(){
+        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
     
     
 }
