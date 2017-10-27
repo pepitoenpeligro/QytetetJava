@@ -17,8 +17,6 @@ public class Tablero {
     
     
     public Tablero(){
-        this.casillas = null;
-        this.carcel = null; 
         inicializar();
     }
 
@@ -26,7 +24,6 @@ public class Tablero {
         return carcel;
     }
     
-    @Override
     public String toString(){
         return "Casillas = " + casillas.toString() + "\t Cárcel = " + carcel.toString() + "\n";
     }
