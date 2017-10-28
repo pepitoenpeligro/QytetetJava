@@ -43,6 +43,10 @@ public class TituloPropiedad {
     public String getNombre() {
         return nombre;
     }
+    
+    public Casilla getCasilla(){
+        return casilla;
+    }
 
     public boolean isHipotecada() {
         return hipotecada;
@@ -110,7 +114,7 @@ public class TituloPropiedad {
     }
     
     protected boolean tengoPropietario(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.propietario == null;
     }
   
 }

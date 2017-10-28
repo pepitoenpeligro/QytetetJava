@@ -24,10 +24,12 @@ public class Qytetet {
     private Sorpresa cartaActual;
     
     private Qytetet(){
-        dado = dado.getInstance();
+        jugadores = new ArrayList<Jugador>();
+        mazo = new ArrayList<Sorpresa>();
+        dado = Dado.getInstance();
     }
     
-    public Qytetet getInstance(){
+    public static Qytetet getInstance(){
         if(juego == null){
             juego = new Qytetet();
         }
@@ -80,7 +82,11 @@ public class Qytetet {
     }
     
     public void inicializarJuego(ArrayList<String> nombres){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        this.inicializarJugadores(nombres);
+        this.inicializarCartasSorpresa();
+        this.inicializarTablero();
+        this.salidaJugadores(); // POR implementar
+        
     }
     
     public boolean intentarSalirCarcel(MetodoSalirCarcel metodo){
@@ -96,11 +102,29 @@ public class Qytetet {
     }
     
     public ArrayList<Casilla> propiedadesHipotecadasJugador(boolean hipotecadas){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        ArrayList<Casilla> casillasPropiedad = new ArrayList<Casilla>();
+        
+        // Para cada uno de los titulos de propiedad hipotecados, obtengo su casilla y la devuelvo en un array aux
+        for(int i = 0; i < jugadorActual.obtenerPropiedadesHipotecadas(hipotecadas).size(); i++){
+            casillasPropiedad.add(jugadorActual.obtenerPropiedadesHipotecadas(hipotecadas).get(i).getCasilla());
+        }
+        
+        return casillasPropiedad;
     }
     
     public Jugador siguienteJugador(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        // Obtengo el indice del jugador actual en la coleccion
+        // Retorno el siguiente al jugadorActual
+        int posicion = 0;
+        boolean encontrado = false;
+        for(int i = 0; i < jugadores.size() && !encontrado; i++){
+            if(jugadorActual == jugadores.get(i)){
+                posicion = i; 
+                encontrado = true;
+            }
+        }
+        return jugadores.get( (posicion+1) % Qytetet.MAX_JUGADORES);
+        
     }
     
     public boolean venderPropiedad(Casilla casilla){
@@ -132,6 +156,7 @@ public class Qytetet {
     }
     
     private void inicializarJugadores(ArrayList<String> nombres){
+        
         for(int i = 0; i < nombres.size(); i++){
             this.jugadores.add( new Jugador(nombres.get(i)) );
         }
@@ -142,7 +167,22 @@ public class Qytetet {
     }
     
     private void salidaJugadores(){
+        for(int i = 0; i < this.jugadores.size(); i++){
+            // Establecemos a cada jugador en la casilla 0 -> Casilla de salida
+            jugadores.get(i).setCasillaActual(tablero.obtenerCasillaNumero(0));
+            
+            // Establecemos a cada jugador el saldo a 7500
+            jugadores.get(i).setSaldo(7500);            
+            
+        }
         
+        // Establecemos el jugadorActual
+        int actual = (int) (Math.random() * (Qytetet.MAX_JUGADORES - 1));
+        jugadorActual = jugadores.get(actual);
+    }
+    
+    public ArrayList<Jugador> getJugadores(){
+        return jugadores;
     }
     
 }

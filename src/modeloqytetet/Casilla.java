@@ -129,7 +129,7 @@ public class Casilla {
     }
     
     protected boolean estaHipotecada(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.titulo.getHipotecada();
     }
     
     protected int getCosteHipoteca(){
@@ -161,7 +161,7 @@ public class Casilla {
     }
     
     protected boolean soyEdificable(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.tipo == TipoCasilla.CALLE;
     }
     
     protected boolean tengoPropietario(){

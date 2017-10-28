@@ -30,7 +30,7 @@ public class Tablero {
     }
     
     private void inicializar(){
-       
+        casillas = new ArrayList<Casilla>();
         casillas.add(new Casilla(0,1000, TipoCasilla.SALIDA)); // Casilla de salida
         casillas.add(new Casilla(1,0, TipoCasilla.PARKING)); // Parking
         casillas.add(new Casilla(2,0, TipoCasilla.IMPUESTO)); // Impuesto
@@ -63,16 +63,30 @@ public class Tablero {
         return "[" + stackTraceElements[1].toString() + "]";
     }
     
-    protected boolean esCasillaCarcel(int numeroCasilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    //protected 
+    public boolean esCasillaCarcel(int numeroCasilla){
+        return numeroCasilla == 4;
     }
     
-    protected Casilla obtenerCasillaNumero(int numeroCasilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    //protected 
+    public Casilla obtenerCasillaNumero(int numeroCasilla){
+        return casillas.get(numeroCasilla);
     }
     
-    protected Casilla obtenerNuevaCasilla(Casilla casilla, int desplazamiento){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    //protected 
+    public Casilla obtenerNuevaCasilla(Casilla casilla, int desplazamiento){
+        boolean encontrado = false;
+        int posicion = 0;
+        for(int i = 0; i < casillas.size() && !encontrado; i++){
+            if(casilla.getNumeroCasilla() == casillas.get(i).getNumeroCasilla()){
+                posicion = i;
+                encontrado = true;
+            }
+            
+        }
+        
+        return casillas.get( ( posicion + desplazamiento) % Qytetet.MAX_CASILLAS);
+        
     }
     
     

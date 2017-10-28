@@ -16,7 +16,7 @@ public class Dado {
         
     }
     
-    public Dado getInstance(){
+    public static Dado getInstance(){
         if(dado == null){
             dado = new Dado();
         }
@@ -24,8 +24,8 @@ public class Dado {
     }
     
     protected int tirar(){
-        return 0;
-    }
+        return (int) (Math.random() * 6) + 1;
+    } 
     
     
 }
