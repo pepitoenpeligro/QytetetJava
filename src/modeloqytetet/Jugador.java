@@ -69,8 +69,28 @@ public class Jugador {
         return this.propiedades.size() != 0;
     }
     
-    protected boolean actualizarPosicion(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    protected boolean actualizarPosicion(Casilla casilla){
+        
+        if(casilla.getNumeroCasilla()  < this.casillaActual.getNumeroCasilla()){
+            this.modificarSaldo(Qytetet.SALDO_SALIDA);
+        }
+        
+        this.setCasillaActual(casilla);
+        
+        if(casilla.soyEdificable()){
+            boolean tengoPropietario = casilla.tengoPropietario();
+            if(tengoPropietario){
+                boolean encarcelado = casilla.propietarioEncarcelado();
+                if(!encarcelado){
+                    int coste = casilla.cobrarAlquiler();
+                    this.modificarSaldo(-coste);
+                }
+                
+            }
+        }else if(casilla.getTipo() == TipoCasilla.IMPUESTO){
+            this.modificarSaldo(-casilla.getCoste());
+        }
+        return casilla.tengoPropietario();
     }
     
     protected boolean comprarTitulo(){
