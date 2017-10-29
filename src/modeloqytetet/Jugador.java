@@ -184,7 +184,7 @@ public class Jugador {
     }
     
     protected boolean puedoHipotecar(Casilla casilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.esDeMiPropiedad(casilla);
     }
     
     protected boolean puedoPagarHipoteca(Casilla casilla){
