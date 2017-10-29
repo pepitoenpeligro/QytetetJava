@@ -117,7 +117,10 @@ public class Casilla {
     }
     
     protected int cobrarAlquiler(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        int costeAlquilerBase = this.titulo.getAlquilerBase();
+        int costeAlquiler = costeAlquilerBase + (int) (this.numCasas * 0.5 + this.numHoteles * 2);
+        this.titulo.cobrarAlquiler(costeAlquiler);
+        return costeAlquiler;
     }
     
     protected int edificarCasa(){
