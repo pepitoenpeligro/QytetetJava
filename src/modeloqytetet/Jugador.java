@@ -212,7 +212,7 @@ public class Jugador {
     }
     
     protected void venderPropiedad(Casilla casilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        int precioVenta = casilla.venderTitulo();
     }
     
     private int cuantasCasasHotelesTengo(){

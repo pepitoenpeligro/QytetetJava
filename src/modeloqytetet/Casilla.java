@@ -179,7 +179,15 @@ public class Casilla {
     }
     
     protected int venderTitulo(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        
+        int precioCompra = this.coste + (this.numCasas + this.numHoteles) * this.titulo.getPrecioEdificar();
+        int precioVenta = precioCompra +  (int) this.titulo.getFactorRevalorizacion() * precioCompra;
+        
+        this.titulo.setPropietario(null);
+        this.setNumCasas(0);
+        this.setNumHoteles(0);
+        
+        return precioVenta;
     }
     
     protected void setTitulo(TituloPropiedad titulo){
@@ -194,6 +202,8 @@ public class Casilla {
         this.titulo.setPropietario(jugador);
         return this.titulo;
     }
+    
+   
     
     
     

@@ -151,7 +151,13 @@ public class Qytetet {
     }
     
     public boolean venderPropiedad(Casilla casilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        boolean puedoVender = casilla.soyEdificable() && this.jugadorActual.puedoVenderPropiedad(casilla) && !casilla.estaHipotecada();
+        if(puedoVender){
+            this.jugadorActual.venderPropiedad(casilla);
+            puedoVender = true;
+            
+        }
+        return puedoVender;
     }
     
     private void encarcelarJugador(){
