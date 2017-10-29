@@ -94,7 +94,22 @@ public class Jugador {
     }
     
     protected boolean comprarTitulo(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        
+        boolean puedoComprar = false;
+        if(casillaActual.soyEdificable()){
+            boolean tengoPropietario = this.casillaActual.tengoPropietario();
+            if(tengoPropietario){
+                int coste = this.casillaActual.getCoste();
+                
+                if(coste < this.saldo){
+                    TituloPropiedad titulo = this.casillaActual.asignarPropiedad(this);
+                    this.propiedades.add(titulo);
+                    this.modificarSaldo(-coste);
+                    puedoComprar = true;
+                }
+            }
+        }
+        return puedoComprar;
     }
     
     protected Sorpresa devolverCartaLibertad(){

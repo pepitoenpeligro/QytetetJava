@@ -58,7 +58,7 @@ public class Qytetet {
     }
     
     public boolean comprarTituloPropiedad(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.jugadorActual.comprarTitulo();
     }
     
     public boolean edificarCasa(Casilla casilla){

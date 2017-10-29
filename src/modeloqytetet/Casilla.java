@@ -165,7 +165,7 @@ public class Casilla {
     }
     
     protected boolean tengoPropietario(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.titulo.tengoPropietario();
     }
     
     protected int venderTitulo(){
@@ -178,6 +178,11 @@ public class Casilla {
     
     protected void asignarTituloPropiedad(){
         throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+    }
+    
+    protected TituloPropiedad asignarPropiedad(Jugador jugador){
+        this.titulo.setPropietario(jugador);
+        return this.titulo;
     }
     
     
