@@ -170,7 +170,13 @@ public class Jugador {
     }
     
     protected boolean puedoEdificarCasa(Casilla casilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        boolean esMia = this.esDeMiPropiedad(casilla);
+        if(esMia){
+            int costeEdificarCasa = casilla.getPrecioEdificar();
+            boolean tengoSaldo = this.tengoSaldo(costeEdificarCasa);
+            return esMia && tengoSaldo;
+        }
+        return false;
     }
     
     protected boolean puedoEdificarHotel(Casilla casilla){

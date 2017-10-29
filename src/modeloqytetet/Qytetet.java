@@ -62,7 +62,20 @@ public class Qytetet {
     }
     
     public boolean edificarCasa(Casilla casilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        boolean puedoEdificar = false;
+        if(casilla.soyEdificable()){
+            boolean sePuedeEdificar = casilla.sePuedeEdificarCasa();
+            if(sePuedeEdificar){
+                puedoEdificar = this.jugadorActual.puedoEdificarCasa(casilla);
+                
+                if(puedoEdificar){
+                    int costeEdificarCasa = casilla.edificarCasa();
+                    this.jugadorActual.modificarSaldo(-costeEdificarCasa);
+                }
+                
+            }
+        }
+        return puedoEdificar;
     }
     
     public boolean edificarHotel(Casilla casilla){

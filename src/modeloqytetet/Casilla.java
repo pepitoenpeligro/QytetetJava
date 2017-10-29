@@ -121,7 +121,9 @@ public class Casilla {
     }
     
     protected int edificarCasa(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        this.setNumCasas(this.numCasas + 1);
+        int costeEdificarCasa = this.titulo.getPrecioEdificar();
+        return costeEdificarCasa;
     }
     
     protected int edificarHotel(){
@@ -153,7 +155,7 @@ public class Casilla {
     }
     
     protected boolean sePuedeEdificarCasa(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.numCasas < 4;
     }
     
     protected boolean sePuedeEdificarHotel(){
