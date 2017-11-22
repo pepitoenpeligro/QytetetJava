@@ -89,17 +89,26 @@ public class PruebaQytetet {
         System.out.println("Sorpresas con tipo PORCASAHOTEL: " + devolverTipo(TipoSorpresa.PORCASAHOTEL).toString());
         System.out.println("Sorpresas con tipo PORJUGADOR: " + devolverTipo(TipoSorpresa.PORJUGADOR).toString());
         System.out.println("Sorpresas con tipo SALIRCARCEL: " + devolverTipo(TipoSorpresa.SALIRCARCEL).toString());
+        */
         
         
-        
-        Tablero miTableroPrueba = new Tablero();
+        /*Tablero miTableroPrueba = new Tablero();
         System.out.println(miTableroPrueba.toString());
-        System.out.println("La carcel esta: " + miTableroPrueba.getCarcel().getNumeroCasilla());*/
+        System.out.println("La carcel esta: " + miTableroPrueba.getCarcel().getNumeroCasilla());
         
         
         
-        //Jugador j = new Jugador("Anda Paqui", true, 2000,null,  null, null );
-        //j.actualizarPosicion();
+        Jugador j = new Jugador("Anda Paqui", true, 2000,null,  null, null );
+        
+        j.actualizarPosicion();*/
+        
+        ArrayList<String> nombreJugadores = new ArrayList<String>();
+        nombreJugadores.add("Jelaminah");
+        nombreJugadores.add("Jela");
+        Qytetet q = Qytetet.getInstance();
+        q.inicializarJuego(nombreJugadores);
+        System.out.println(q.getJugadores().toString());
+        System.out.println("Ranking:" + q.obtenerRanking().toString());
         
     }
     

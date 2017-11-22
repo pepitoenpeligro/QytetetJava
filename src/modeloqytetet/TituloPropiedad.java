@@ -1,8 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Métodos implementados (100%):
+// - getNombre()
+// - getCasilla()
+// - isHipotecada()
+// - getAlquilerBase()
+// - getFactorRevalorizacion()
+// - getHipotecaBase()
+// - getPrecioEdificar()
+// - setHipotecada
+// - conmutarHipoteca()
+// - toString()
+// - cobrarAlquiler(int coste)
+// - getHipotecada()
+// - propietarioEncarcelado()
+// - setCasilla(Casilla casilla)
+// - setPropietario(Jugador propietario)
+// - tengoPropietario()
+
 package modeloqytetet;
 
 /**
@@ -97,14 +110,16 @@ public class TituloPropiedad {
         throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
     }
     
+    
     protected boolean getHipotecada(){
         return this.hipotecada;
     }
     
     protected boolean propietarioEncarcelado(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        //throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        return this.propietario.getEncarcelado();
     }
-    
+
     protected void setCasilla(Casilla casilla){
         this.casilla = casilla;
     }
@@ -114,7 +129,7 @@ public class TituloPropiedad {
     }
     
     protected boolean tengoPropietario(){
-        return this.propietario == null;
+        return this.propietario != null;
     }
   
 }

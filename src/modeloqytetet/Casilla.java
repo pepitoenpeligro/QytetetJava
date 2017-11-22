@@ -5,7 +5,6 @@
  */
 package modeloqytetet;
 
-
 /**
  *
  * @author pepito
@@ -131,8 +130,10 @@ public class Casilla {
         return costeEdificarCasa;
     }
     
+    // NO ESTA ESPECIFICADO EN LA ASIGNATURA
     protected int edificarHotel(){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+       this.setNumHoteles(numHoteles + 1);
+       return titulo.getPrecioEdificar();
     }
     
     protected boolean estaHipotecada(){

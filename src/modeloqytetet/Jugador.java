@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modeloqytetet;
 
 import java.util.ArrayList;
@@ -39,7 +34,11 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + "encarcelado=" + encarcelado + ", nombre=" + nombre + ", saldo=" + saldo + ", cartaLibertad=" + cartaLibertad + ", casillaActual=" + casillaActual + ", propiedades=" + propiedades + '}';
+        return "Jugador (" + this.hashCode() + " {" + "encarcelado=" + encarcelado + ", nombre=" + nombre + ", saldo=" + saldo + ", cartaLibertad=" + cartaLibertad + ", casillaActual=" + casillaActual + ", propiedades=" + propiedades + '}' ;
+    }
+    
+    public String getNombre(){
+        return this.nombre;
     }
     
     public void setSaldo(int cantidad){
@@ -120,7 +119,8 @@ public class Jugador {
     }
     
     protected void irACarcel(Casilla casilla){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        this.setCasillaActual(casilla);
+        this.setEncarcelado(true);
     }
     
     protected void modificarSaldo(int cantidad){
@@ -162,11 +162,16 @@ public class Jugador {
     }
     
     protected void pagarCobrarPorCasaYHotel(int cantidad){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        int numeroTotal = this.cuantasCasasHotelesTengo();
+        this.modificarSaldo(cantidad * numeroTotal);
     }
     
     protected boolean pagarLibertad(int cantidad){
-        throw new UnsupportedOperationException(getNombreFuncion() + "Sin implementar");
+        boolean tengoSaldo = this.tengoSaldo(cantidad);
+        if(tengoSaldo){
+            this.modificarSaldo(cantidad);
+        }
+        return tengoSaldo;
     }
     
     protected boolean puedoEdificarCasa(Casilla casilla){

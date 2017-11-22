@@ -1,8 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Métodos implementados (100%):
+// - getCarcel()
+// - toString()
+// - inicializar()
+// - esCasillaCarcel(int numeroCasilla)
+// - obtenerCasillaNumero(int numeroCasilla)
+// - obtenerNuevaCasilla(Casilla casilla, int desplazamiento)
 package modeloqytetet;
 
 import java.util.ArrayList;
