@@ -1,3 +1,4 @@
+
 package interfaz_textual_qytetet;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class VistaTextualQytetet {
     
 private static final Scanner in = new Scanner (System.in);
     
-public int menuGestionInmobiliaria(){ //ejemplo de menú
+public int menuGestionInmobiliaria(){ //ejemplo de men�
      
     this.mostrar("Elige la gestion inmobiliaria que deseas hacer");
     Map<Integer, String> menuGI = new TreeMap();
@@ -20,17 +21,37 @@ public int menuGestionInmobiliaria(){ //ejemplo de menú
     menuGI.put(3, "Vender propiedad ");  	
     menuGI.put(4, "Hipotecar Propiedad"); 
     menuGI.put(5, "Cancelar Hipoteca");
-    int salida=this.seleccionMenu(menuGI); // Método para controlar la elección correcta en el menú 
+    menuGI.put(6, "Jugar Propiedad");
+    int salida=this.seleccionMenu(menuGI); // M�todo para controlar la elecci�n correcta en el men� 
     return salida;
  }
 
-// public int menuSalirCarcel(){
-//    //eleccion de metodo para salir de la carcel. Por completar
-// }
+ public int menuSalirCarcel(){
+     this.mostrar("Elige Metodo salir carcel ");
+    Map<Integer, String> menuSC = new TreeMap();
+    menuSC.put(0, "Tirando el dado"); 
+    menuSC.put(1, "Pagando mi libertad");
+    
+    int salida=this.seleccionMenu(menuSC);
+    return salida;
+ }
   
-//  public boolean elegirQuieroComprar(){
-//    // se pide si o no se quiere comprar una propiedad. Por completar
-// }
+  public boolean elegirQuieroComprar(){
+      int quieroComprar;
+      String lectura;
+      boolean ret;
+      
+      mostrar("Quieres comprar la propiedad? \n0 -> si\n1 -> no ");
+      lectura = in.nextLine();
+      quieroComprar = Integer.parseInt(lectura);
+      
+      if(quieroComprar == 0)
+          ret = true;
+      else
+          ret = false;
+      
+      return ret;
+ }
  
         
  public int menuElegirPropiedad(ArrayList<String> listaPropiedades){  //numero y nombre de propiedades            
@@ -40,37 +61,37 @@ public int menuGestionInmobiliaria(){ //ejemplo de menú
         menuEP.put(numeroOpcion, prop); //opcion de menu, numero y nombre de propiedad
         numeroOpcion=numeroOpcion+1;
     }
-    int salida=this.seleccionMenu(menuEP); // Método para controlar la elección correcta en el menú 
+    int salida=this.seleccionMenu(menuEP); // M�todo para controlar la elecci�n correcta en el men� 
     return salida;
  
    }   
 
 private int seleccionMenu(Map<Integer,String> menu) 
-//Método para controlar la elección correcta de una opción en el menú que recibe como argumento   
+//M�todo para controlar la elecci�n correcta de una opci�n en el men� que recibe como argumento   
 {   boolean valido = true; 
     int numero;
     String lectura;
-    do { // Hasta que se hace una selección válida
+    do { // Hasta que se hace una selecci�n v�lida
       for(Map.Entry<Integer, String> fila : menu.entrySet()) {
             numero = fila.getKey();
             String texto = fila.getValue();
-            this.mostrar(numero + " : " + texto);  // número de opción y texto
+            this.mostrar(numero + " : " + texto);  // n�mero de opci�n y texto
       }
-      this.mostrar("\n Elige una opción: ");
+      this.mostrar("\n Elige una opci�n: ");
       lectura = in.nextLine();  //lectura de teclado
-      valido=this.comprobarOpcion(lectura, 0, menu.size()-1); //método para comprobar la elección correcta
+      valido=this.comprobarOpcion(lectura, 0, menu.size()-1); //m�todo para comprobar la elecci�n correcta
     } while (!valido);
     return Integer.parseInt(lectura);
 }
 
-public ArrayList<String> obtenerNombreJugadores() { //método para pedir el nombre de los jugadores
+public ArrayList<String> obtenerNombreJugadores() { //m�todo para pedir el nombre de los jugadores
     boolean valido = true; 
     String lectura;
     ArrayList<String> nombres = new ArrayList();
-    do{ //repetir mientras que el usuario no escriba un número correcto 
-        this.mostrar("Escribe el número de jugadores: (de 2 a 4):");
+    do{ //repetir mientras que el usuario no escriba un n�mero correcto 
+        this.mostrar("Escribe el n�mero de jugadores: (de 2 a 4):");
         lectura = in.nextLine();  //lectura de teclado
-        valido=this.comprobarOpcion(lectura, 2, 4); //método para comprobar la elección correcta
+        valido=this.comprobarOpcion(lectura, 2, 4); //m�todo para comprobar la elecci�n correcta
     }while (!valido);
     
     for (int i = 1; i <= Integer.parseInt(lectura); i++) { //solicitud del nombre de cada jugador
@@ -81,12 +102,12 @@ public ArrayList<String> obtenerNombreJugadores() { //método para pedir el nomb
   }
 
  private boolean comprobarOpcion(String lectura, int min, int max){ 
-//método para comprobar que se introduce un entero correcto, usado por seleccion_menu
+//m�todo para comprobar que se introduce un entero correcto, usado por seleccion_menu
      boolean valido=true;   
      int opcion;
      try {  
           opcion =Integer.parseInt(lectura);
-          if (opcion<min || opcion>max) { // No es un entero entre los válidos
+          if (opcion<min || opcion>max) { // No es un entero entre los v�lidos
                this.mostrar("el numero debe estar entre min y max");
                 valido = false;}
         
@@ -100,15 +121,19 @@ public ArrayList<String> obtenerNombreJugadores() { //método para pedir el nomb
       return valido;
    }
 
- public void mostrar(String texto){ //método que muestra en pantalla el string que recibe como argumento
+ public void mostrar(String texto){ //m�todo que muestra en pantalla el string que recibe como argumento
          
     System.out.println(texto);
 }
- 
+
+public void esperar(){
+    mostrar("\nPulse tecla para continuar");
+  String lectura = in.nextLine();   
+}
 
 }
  
-// añadir el siguiente método a ControladorQytetet
+// a�adir el siguiente m�todo a ControladorQytetet
 //     public Casilla elegirPropiedad(ArrayList<Casilla> propiedades){ 
 // //este metodo toma una lista de propiedades y genera una lista de strings, con el numero y nombre de las propiedades
 // //luego llama a la vista para que el usuario pueda elegir.
